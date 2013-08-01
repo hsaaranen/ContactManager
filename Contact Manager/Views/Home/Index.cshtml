@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>ContactManager Web app</title>
+        <link rel="stylesheet" href="/src/css/screen.css" /> 
+        <script id="contactsTemplate" type="text/template">
+                <button class="delete">x</button>
+                <ul>
+                    <li> <%= firstName %> <%= lastName %> </li>
+                    <li> <%= address %> </li>
+                    <li> <%= email %> </li>
+                </ul>
+        </script>           
+    </head>
+    <body>
+        <div class="header">Contacts Manager</div>  
+            <div id="contactInfo"><form>
+                <label for="firstName" class="topMargins">First name: </label><input id="firstName" class="topMargins" type="text" placeholder="John">
+                <div class="fadeReserve"><span id="firstNameValError" class="valError"></span></div>
+                <label for="lastName">Last name: </label><input id="lastName" type="text" placeholder="Doe">
+                <div class="fadeReserve"><span id="lastNameValError" class="valError"></span></div>
+                <label for="address">Address: </label><input id="address" type="text" placeholder="Street, zip, city">
+                <div class="fadeReserve"><span id="addressValError" class="valError"></span></div>
+                <label for="email">Email: </label><input id="email" type="email" placeholder="john.doe@something.com"> 
+                <div class="fadeReserve"><span id="emailValError" class="valError"></span></div>
+                <button id="submit" type="button">Submit</button>                        
+                <label>Sort: </label>
+                <select id = "sortList">
+                    <option value = "lastName">Last Name</option>   
+                    <option value = "firstName">First Name</option>
+                    <option value = "address">Address</option>
+                    <option value = "createdNewest">Created (newest)</option>
+                    <option value = "createdOldest">Created (oldest)</option>
+                </select>
+                <label for="searchInput" class="topMargins">Search: </label><input class="topMargins" id="searchInput" type="text" placeholder="Attribute...">
+                <ul id="validationError"></ul>
+         </form></div>   
+         <div class="contactListContainer"></div>           
+        <script src="/Scripts/jquery-1.10.1.js"></script>
+        <script src="/Scripts/underscore-1.4.4.js"></script>
+        <script src="/Scripts/backbone-1.0.0.js"></script>
+        <script src="/src/app.js"></script>           
+    </body>
+</html>
